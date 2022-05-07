@@ -1,0 +1,24 @@
+<div class="container">
+    <div>
+        <h3>Welcome to ShopBridge</h3>
+    </div>
+
+    <div>
+        <h3>Login Details</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+            <div class="mb-3">
+              <label for="usernameId" class="form-label">User Name</label>
+              <input type="text" class="form-control" id="usernameId" aria-describedby="userName"
+              formControlName="username">
+            </div>
+            <div class="mb-3">
+              <label for="passwordId" class="form-label">Password</label>
+              <input type="password" class="form-control" id="passwordId" formControlName="password">
+            </div>
+         <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+          <div *ngIf="invalidCredentialMsg" style="color: red">
+            {{ invalidCredentialMsg }}
+          </div>
+    </div>
+</div>
