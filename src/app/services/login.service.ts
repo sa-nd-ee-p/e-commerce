@@ -27,6 +27,7 @@ export class LoginService {
                 } else {
                     this.isloggedIn = false;
                 }
+                sessionStorage.setItem("isLoggedIn",JSON.stringify(this.isloggedIn))
                 return this.isloggedIn;
             })
         );

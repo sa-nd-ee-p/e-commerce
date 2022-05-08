@@ -8,7 +8,7 @@ import { LoginService } from './login.service';
 export class LoginGuardService {
   constructor(private loginService: LoginService, private router: Router) { }
   canActivate(): boolean {
-      if (this.loginService.isUserLoggedIn()) {
+      if (this.loginService.isUserLoggedIn() || sessionStorage.getItem("isLoggedIn")) {
           return true;
       }
       this.router.navigate(['/login']);

@@ -29,7 +29,7 @@ export class LoginComponent  {
       .isUserAuthenticated(uname, pwd)
       .subscribe({next:(authenticated) => {
         if (authenticated) {
-          this.router.navigate(['/about']);
+          this.router.navigate(['/products']);
         } else {
           this.invalidCredentialMsg = 'Invalid Credentials. Try again.';
         }
