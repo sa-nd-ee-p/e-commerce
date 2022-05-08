@@ -6,7 +6,8 @@
                     Product</button>
             </div>
         </div>
-        <div class="col-md-4 col-sm-12" *ngFor="let product of products | paginate: { itemsPerPage: 9, currentPage: p }">
+        <div class="col-md-4 col-sm-12"
+            *ngFor="let product of products | paginate: { itemsPerPage: 9, currentPage: p }">
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">{{product.productName}}</h5>
@@ -14,7 +15,7 @@
                     <h6 class="card-subtitle mb-2 text-muted">Price - {{product.price}}</h6>
                     <h6 class="card-subtitle mb-2 text-muted">Rating - {{product.rating}}</h6>
                     <p class="card-text">
-                       Description - {{product.description}}
+                        Description - {{product.description}}
                     </p>
                     <button type="button" class="btn btn-primary btn-sm float-start"
                         (click)="updateProduct(product)">Edit</button>
@@ -24,9 +25,11 @@
             </div>
 
         </div>
-        <div class="col-md-12 col-sm-12"><pagination-controls (pageChange)="p = $event"></pagination-controls></div>
+        <div class="col-md-12 col-sm-12">
+            <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
     </div>
-    
+
 </div>
 
 <!-- Modal For Adding/Updating a Product -->
@@ -49,22 +52,26 @@
                         <label for="name" class="form-label">Product Name</label>
                         <input type="text" class="form-control" id="name" aria-describedby="name"
                             formControlName="name">
+
                     </div>
                     <div class="mb-3">
                         <label for="rating" class="form-label">Rating</label>
-                        <input type="rating" class="form-control" id="rating" formControlName="rating">
+                        <input type="number" class="form-control" id="rating" formControlName="rating">
+
                     </div>
                     <div class="mb-3">
                         <label for="category" class="form-label">Category</label>
-                        <input type="category" class="form-control" id="category" formControlName="category">
+                        <input type="text" class="form-control" id="category" formControlName="category">
+
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Price</label>
-                        <input type="price" class="form-control" id="price" formControlName="price">
+                        <input type="number" class="form-control" id="price" formControlName="price">
+
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <input type="description" class="form-control" id="description" formControlName="description">
+                        <input type="text" class="form-control" id="description" formControlName="description">
                     </div>
 
                 </form>
@@ -72,10 +79,10 @@
 
             <!-- Modal footer -->
             <div class="modal-footer">
-                <!-- <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="closeUpdateModal()">Close</button> -->
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"
                     (click)="closeProductModal()">Close</button>
-                <button type="button" (click)="onFormSubmit()" class="btn btn-primary">Save changes</button>
+                <button type="button" (click)="onFormSubmit()" class="btn btn-primary"
+                    [disabled]="!productForm.valid">Save changes</button>
             </div>
 
         </div>
@@ -132,7 +139,7 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"
                     (click)="closeMessageModal()">Close</button>
-                
+
             </div>
 
         </div>

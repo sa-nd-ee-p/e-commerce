@@ -71,6 +71,7 @@ export class ProductsComponent implements OnInit {
   }
 
   addProduct() {
+    this.productForm.reset();
     this.openProductModal = true;
     this.addProductFlag = true;
     this.title = 'Add Product';

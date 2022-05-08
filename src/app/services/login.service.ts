@@ -4,7 +4,7 @@ import { User } from 'src/assets/user';
 import { map } from 'rxjs/operators';
 
 const USERS = [
-  new User(1, 'admin1', 'admin123'),
+  new User(1, 'admin', 'admin123'),
   new User(2, 'admin2', 'admin456')
 ];
 const usersObservable = of(USERS);
